@@ -1,0 +1,48 @@
+#cloud-config
+
+package_upgrade: true
+
+packages:
+
+  - sudo
+  - tmux
+  - nmap
+  - curl
+  - wget
+  - git
+  - htop
+  - mc
+  - nano
+  - ansible
+
+
+users:
+
+  - name: root
+
+    ssh-authorized-keys:
+
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDjFqfjJvdzklHcJBhKE5pEZD2BJjUU2qOEWR+t+2PT3BGsYouip9Zx+rgt4gAUoiFbZA4YOLWTnT1uDr7h9Xy60Smy48SKMwruLAkEaBRUFcJ8zkiG9POxvqGu/nbv2giCPVnlnPAOvF6F0Wq2AaUB+kLqY4GRpZkTTJ+9A+7iXVKW1HDRpkIc+Zgy70SOJmENlf2VpalZaH1lSzaL/S127SKxB/SKMB9dGNP2cUM49kypw3p3Of7S7IbRUPwgZOfmLPlgQSRdvgEbSyqBvanPUki2mkOtmvbKmoSaPfNJ3amTzYj2vMfBfLYg1NB0ZJapHHfEwwZ60Bqo2jGnfK40i+ximkQjRP+RaTN4KZUOLRR9++pcsOMI09sd5s0WDUZ2I2nXJVLNPMlme8zEXSSTsbxOJabRPiJdz1rR4Ito7YsKPFT9ZLs4Ie4eiMm1RqC3kywy9P2Wtj8Dm94gRO5fMJiO9B/Uml1HTURGTh+viuF4E8nqA008F2sRDP5u6XU= root@wallace
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvst/FJr+7BJX98grW3DyXqwwJfb5p5ZyVYdlV0vuGdG4nPg2fos0zT+nx14r1k4Xv+zAVYSME4Zl30hl1UFeKf+bfFidi1/RkyYuy6/FsOnJYkf4LjUOC8c0in5SQrMBS//AyuRQOQWIBt7yjLfHMafSdNUbNIZq34/AmpQwMETWbjeSi9QBxhyRL0PVl22ltWyh31wtXiIaAivllJtoxQuWBjoTwqPaBX8qA73zXNvLypvEKjvBFi7hRW5BHOYyOAztFrk7cYTv+9hqJi0LhUe2YVeihHtZUzzlHgxxrsYjXI217gpJHlijkClv7va0BocWrC5P+hHVKUuqvvn3ZDks3YJKFsy8+Uu1a0f6UVELeVUHvh0l8aRQmP9/rIiWzGcgIOLRKhR0nzdWBK/xydhNNYAMsHz4U+mfFQfLqrC28PCkEjbZlmsTJDX9vYDW36wbON5PsftrTzWKBROEkAlKElgqQ2TB8xFJvWHbgUht4rtwssQjb9dRVpTg/k7E= ops@wallace
+
+  - name: ops
+
+    groups: sudo
+
+    shell: /bin/bash
+
+    sudo: ['ALL=(ALL) NOPASSWD: ALL']
+
+    ssh-authorized-keys:
+
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDjFqfjJvdzklHcJBhKE5pEZD2BJjUU2qOEWR+t+2PT3BGsYouip9Zx+rgt4gAUoiFbZA4YOLWTnT1uDr7h9Xy60Smy48SKMwruLAkEaBRUFcJ8zkiG9POxvqGu/nbv2giCPVnlnPAOvF6F0Wq2AaUB+kLqY4GRpZkTTJ+9A+7iXVKW1HDRpkIc+Zgy70SOJmENlf2VpalZaH1lSzaL/S127SKxB/SKMB9dGNP2cUM49kypw3p3Of7S7IbRUPwgZOfmLPlgQSRdvgEbSyqBvanPUki2mkOtmvbKmoSaPfNJ3amTzYj2vMfBfLYg1NB0ZJapHHfEwwZ60Bqo2jGnfK40i+ximkQjRP+RaTN4KZUOLRR9++pcsOMI09sd5s0WDUZ2I2nXJVLNPMlme8zEXSSTsbxOJabRPiJdz1rR4Ito7YsKPFT9ZLs4Ie4eiMm1RqC3kywy9P2Wtj8Dm94gRO5fMJiO9B/Uml1HTURGTh+viuF4E8nqA008F2sRDP5u6XU= root@wallace
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvst/FJr+7BJX98grW3DyXqwwJfb5p5ZyVYdlV0vuGdG4nPg2fos0zT+nx14r1k4Xv+zAVYSME4Zl30hl1UFeKf+bfFidi1/RkyYuy6/FsOnJYkf4LjUOC8c0in5SQrMBS//AyuRQOQWIBt7yjLfHMafSdNUbNIZq34/AmpQwMETWbjeSi9QBxhyRL0PVl22ltWyh31wtXiIaAivllJtoxQuWBjoTwqPaBX8qA73zXNvLypvEKjvBFi7hRW5BHOYyOAztFrk7cYTv+9hqJi0LhUe2YVeihHtZUzzlHgxxrsYjXI217gpJHlijkClv7va0BocWrC5P+hHVKUuqvvn3ZDks3YJKFsy8+Uu1a0f6UVELeVUHvh0l8aRQmP9/rIiWzGcgIOLRKhR0nzdWBK/xydhNNYAMsHz4U+mfFQfLqrC28PCkEjbZlmsTJDX9vYDW36wbON5PsftrTzWKBROEkAlKElgqQ2TB8xFJvWHbgUht4rtwssQjb9dRVpTg/k7E= ops@wallace
+
+
+runcmd:
+
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
+#  - sed -i 's|[#]*PasswordAuthentication yes|PasswordAuthentication no|g' /etc/ssh/sshd_config
+#  - sed -i 's|UsePAM yes|UsePAM no|g' /etc/ssh/sshd_config
+  - restart ssh
+
