@@ -5,12 +5,13 @@ package_upgrade: true
 packages:
 
   - sudo
-  - tmux
+  - python3
   - nmap
   - curl
   - wget
   - git
   - htop
+  - pip
   - mc
   - nano
   - ansible
